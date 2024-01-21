@@ -14,7 +14,7 @@ const add = function(a,b) {
     return a/b;
   };
 
-  const operate = function(num1,operator,num2){
+const operate = function(num1,operator,num2){
     if (operator === "+"){
         return add(num1,num2)
     }
@@ -29,11 +29,22 @@ const add = function(a,b) {
     else if(operator === "/"){
         return divide(num1,num2)
     }
-  }
-  
+}
 
-  let number1 = 0;
-  let operator = null;
-  let number2 = 0;
+
+let number1 = 0;
+let operator = null;
+let number2 = 0;
+
+let buttons = document.querySelectorAll('.button.number');
+function handlenumberbuttons(e){
+    let value = e.target.textContent;
+    number1 = value
+
+    console.log(number1)
+}
+buttons.forEach(button => {
+    button.addEventListener('click',handlenumberbuttons)
+} )
 
 
