@@ -8,3 +8,29 @@ body{
     justify-content: center;
     align-items: flex-start;
 }
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 50%;
+    min-width: 400px;
+}
+
+.buttonarea,.resultsarea{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 100%;
+}
+
+.resultsarea{
+    height: 50px;
+}
+
+.buttonarea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 1 25%;
+    height: 50px;
+    
+}
