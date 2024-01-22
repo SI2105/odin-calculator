@@ -32,19 +32,44 @@ const operate = function(num1,operator,num2){
 }
 
 
-let number1 = 0;
+let number1 = null;
 let operator = null;
-let number2 = 0;
+let number2 = null;
 
 let buttons = document.querySelectorAll('.button.number');
 function handlenumberbuttons(e){
-    let value = e.target.textContent;
-    number1 = value
-
-    console.log(number1)
+    let results = document.querySelector('.resultsarea');
+    results.textContent += e.target.textContent;
 }
 buttons.forEach(button => {
     button.addEventListener('click',handlenumberbuttons)
 } )
 
+let operators = document.querySelectorAll('.button.operator');
+
+function handleopeartorbuttons(e){
+  let results = document.querySelector('.resultsarea');
+  if (results != "" && number2 === null && operator === null){
+ 
+    number1 = Number(results.textContent);
+    results.textContent = "";
+    operator = e.target.textContent;
+  }
+
+  else if(operator != null){
+    number2 = Number(results.textContent);
+    results.textContent = operate(number1, operator, number2);
+   
+    number2 = null;
+    operator = null;
+  }
+
+
+}
+
+
+
+operators.forEach(operator => {
+  operator.addEventListener('click', handleopeartorbuttons);
+})
 
